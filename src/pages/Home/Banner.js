@@ -3,15 +3,13 @@ import chair from '../../assets/images/chair.png'
 
 const Banner = () => {
     return (
-        <div>
-            <div class="hero min-h-screen ">
-                <div class="hero-content flex-col lg:flex-row-reverse items-center">
-                    <img src={chair} class="max-w-sm lg:max-w-md rounded-lg shadow-2xl" alt='chair'/>
-                    <div>
-                        <h1 class="text-5xl font-bold">Your New Smile Starts <br /> Here</h1>
-                        <p class="py-6">We use state-of-the-art technology and the most advanced dental techniques to provide you with exceptional care. We care about your comfort, and offer a calm waiting area, free parking, and even massage chairs in the operating room. </p>
-                        <button class="btn btn-primary text-white uppercase">Get Started</button>
-                    </div>
+        <div className="hero min-h-screen lg:px-12 overflow-hidden bg-[url('https://i.ibb.co/Fq8m6Fh/bg.png')] bg-cover ">
+            <div className="hero-content mb-52 lg:mb-12  flex-col lg:flex-row-reverse items-center">
+                <img src={chair} className="max-w-sm lg:max-w-lg rounded-lg shadow-2xl" alt='chair' />
+                <div>
+                    <h1 className="text-5xl font-bold">Your New Smile Starts  Here</h1>
+                    <p className="py-6">We use state-of-the-art technology and the most advanced dental techniques to provide you with exceptional care. We care about your comfort, and offer a calm waiting area, free parking, and even massage chairs in the operating room. </p>
+                    <button className="btn btn-primary text-white uppercase bg-gradient-to-r from-secondary to-primary">Get Started</button>
                 </div>
             </div>
         </div>
