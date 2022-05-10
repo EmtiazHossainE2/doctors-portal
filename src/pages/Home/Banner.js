@@ -1,5 +1,6 @@
 import React from 'react';
 import chair from '../../assets/images/chair.png'
+import FocusButton from '../../conponents/FocusButton';
 
 const Banner = () => {
     return (
@@ -9,7 +10,7 @@ const Banner = () => {
                 <div>
                     <h1 className="text-5xl font-bold">Your New Smile Starts  Here</h1>
                     <p className="py-6">We use state-of-the-art technology and the most advanced dental techniques to provide you with exceptional care. We care about your comfort, and offer a calm waiting area, free parking, and even massage chairs in the operating room. </p>
-                    <button className="btn btn-primary text-white uppercase bg-gradient-to-r from-secondary to-primary">Get Started</button>
+                    <FocusButton>Get Started</FocusButton>
                 </div>
             </div>
         </div>

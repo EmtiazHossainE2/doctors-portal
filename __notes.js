@@ -1,6 +1,6 @@
 /***
  * images
- https://i.ibb.co/HxX77cK/appointment-bg.png
+https://i.ibb.co/KmKdnsR/appointment-bg.png
 https://i.ibb.co/Fq8m6Fh/bg.png
 https://i.ibb.co/gMv3HDS/cavity.png
 https://i.ibb.co/xzr6JKH/chair.png
