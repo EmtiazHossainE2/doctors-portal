@@ -1,0 +1,21 @@
+[
+    {
+        "id": "1",
+        "text": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": "https://i.ibb.co/mNHdmfJ/people-1.png",
+        "name": "S J Rion",
+        "country": "Bangladesh"
+    },{
+        "id": "2",
+        "text": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": "https://i.ibb.co/SBrgpvw/people-2.png",
+        "name": "Shizuka ",
+        "country": "United State"
+    },{
+        "id": "3",
+        "text": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": "https://i.ibb.co/pW608tD/people-3.png",
+        "name": "Kobita",
+        "country": "China"
+    }
+]

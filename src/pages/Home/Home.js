@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Exceptional from './Exceptional';
 import Info from './Info';
 import Services from './Services';
+import TestimonialBottom from './Testimonial/TestimonialBottom';
 import TestimonialTop from './Testimonial/TestimonialTop';
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Exceptional/>
             <AppointmentSection/>
             <TestimonialTop/>
+            <TestimonialBottom/>
         </div>
     );
 };
