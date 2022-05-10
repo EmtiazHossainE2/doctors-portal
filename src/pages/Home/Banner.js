@@ -4,7 +4,7 @@ import FocusButton from '../../conponents/FocusButton';
 
 const Banner = () => {
     return (
-        <div className="hero  py-16 overflow-hidden bg-[url('https://i.ibb.co/Fq8m6Fh/bg.png')] bg-cover ">
+        <div className="  py-16  bg-[url('https://i.ibb.co/Fq8m6Fh/bg.png')] bg-cover ">
             <div className="hero-content  lg:mb-12  flex-col lg:flex-row-reverse items-center">
                 <img src={chair} className="max-w-sm lg:max-w-lg rounded-lg shadow-2xl" alt='chair' />
                 <div>
