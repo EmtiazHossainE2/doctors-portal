@@ -1,0 +1,18 @@
+[
+    {
+        "id": "3101" ,
+        "img": "https://i.ibb.co/26qmqVY/fluoride.png",
+        "title": "Fluoride Treatment",
+        "des": "Fluoride treatments are typically professional treatments containing a high concentration of fluoride that a dentist or hygienist will apply to a person's teeth to improve health and reduce the risk of cavities."
+    },{
+        "id": "3102" ,
+        "img": "https://i.ibb.co/gMv3HDS/cavity.png",
+        "title": "Cavity Filling",
+        "des": "Fillings treat tooth decay, preventing further damage and tooth loss, as well as the possibility of pain and infection. A filling seals a hole, or cavity, in the tooth."
+    },{
+        "id": "3103" ,
+        "img": "https://i.ibb.co/61HRSyN/whitening.png",
+        "title": "Teeth Whitening",
+        "des": "Over 10 years of clinical use of teeth whitening products containing 10% carbamide peroxide have not shown any damage to existing fillings. Do teeth whiteners damage a tooth's nerve? There's no evidence that the teeth whitening process has a harmful effect on the health of a tooth's nerve."
+    }
+]
