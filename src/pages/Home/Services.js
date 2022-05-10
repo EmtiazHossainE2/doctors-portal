@@ -9,7 +9,7 @@ const Services = () => {
         .then(data => setServices(data))
     },[])
     return (
-        <div className='pt-12 px-12'>
+        <div>
             <div className='text-center'>
                 <h2 className='text-3xl font-bold text-primary uppercase'>Our Services</h2>
                 <p className='text-4xl mt-4 mb-16'>Service we provide</p>
