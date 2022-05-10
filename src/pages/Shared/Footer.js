@@ -5,7 +5,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
         <footer className="py-12 bg-[url('https://i.ibb.co/26xZX8D/footer-bg.png')] bg-cover">
-            <div className="footer flex justify-around p-10  text-base-content">
+            <div className="footer lg:flex lg:justify-around p-10  text-base-content">
                 <div>
                     <h2 className='uppercase text-xl font-bold'>services</h2>
                     <Link to='/'>Emergency Checkup</Link>
@@ -25,7 +25,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='my-10 text-center px-12'>
-                <p>Copyright © {currentYear} - All right reserved by Emtiaz Industries Ltd</p>
+                <p>Copyright © {currentYear} - All right reserved by Emtiaz</p>
             </div>
         </footer>
     );

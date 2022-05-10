@@ -3,7 +3,7 @@ import AppointmentSection from './AppointmentSection';
 import Banner from './Banner';
 import ContactSection from './ContactSection';
 import Exceptional from './Exceptional';
-import Footer from './Footer';
+import Footer from '../Shared/Footer';
 import Info from './Info';
 import Services from './Services';
 import TestimonialBottom from './Testimonial/TestimonialBottom';

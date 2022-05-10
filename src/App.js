@@ -11,7 +11,7 @@ import Reviews from './pages/Reviews/Reviews';
 import Navbar from './pages/Shared/Navbar';
 const App = () => {
     return (
-        <div >
+        <div className='max-w-7xl mx-auto'>
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
