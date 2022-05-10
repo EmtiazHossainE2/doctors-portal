@@ -1,14 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+    const activeLink = 'btn btn-secondary text-white  my-1 mx-0 md:my-0 md:mx-2 border-none'
     const menuItems = <>
-        <li><Link to='/' className='text-xl'>Home</Link></li>
-        <li><Link to='/appointment' className='text-xl'>Appointment</Link></li>
-        <li><Link to='/reviews' className='text-xl'>Reviews</Link></li>
-        <li><Link to='/contact-us' className='text-xl'>Contact us</Link></li>
-        <li><Link to='/about-us' className='text-xl'>About</Link></li>
-        <li><Link to='/login' className='text-xl'>Login</Link></li>
+        <li><NavLink to='/' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Home</NavLink></li>
+        <li><NavLink to='/appointment' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Appointment</NavLink></li>
+        <li><NavLink to='/reviews' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Reviews</NavLink></li>
+        <li><NavLink to='/contact-us' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Contact us</NavLink></li>
+        <li><NavLink to='/about-us' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>About</NavLink></li>
+        <li><NavLink to='/login' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Login</NavLink></li>
     </>
     return (
         <div className='lg:px-12'>
