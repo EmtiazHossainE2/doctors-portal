@@ -2,37 +2,33 @@ import React from 'react';
 import clock from '../../assets/icons/clock.svg'
 import marker from '../../assets/icons/marker.svg'
 import phone from '../../assets/icons/phone.svg'
+import InfoCard from './InfoCard';
 
 const Info = () => {
     return (
-        <div>
-            <div className="grid sm:grid-cols-12  md:grid-cols-3 px-12 lg:pb-20 ">
-                <div className='bg-gradient-to-r from-secondary to-primary  flex items-center p-6 max-w-sm mx-auto rounded-xl shadow-lg sm:space-4 space-x-4 '>
-                    <div className='shrink-0'>
-                        <img className='h-16 w-16 rounded-2xl' src={clock} alt="" />
-                    </div>
-                    <div>
-                        <div className='text-xl font-medium text-white'>Opening Hours</div>
-                        <p className='text-yellow-50'>Up to date tools and procedures. </p>
-                    </div>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-12 mb-12'>
+            {/* <InfoCard title="Opening Hour" bgColor="bg-gradient-to-r from-secondary to-primary" description="Mon to Fri at 10am to 4 pm" img={clock}></InfoCard>
+            <InfoCard title="Visit our location" bgColor="bg-accent" description="Emtiaz park , Bus Terminal , 5401 , Us" img={marker} ></InfoCard>
+            <InfoCard title="Contact us now" bgColor="bg-gradient-to-r from-secondary to-primary" description="+000 123 456789" img={phone}></InfoCard> */}
+            <div className="card lg:card-side bg-base-100 shadow-xl  py-4 bg-gradient-to-r from-secondary to-primary ">
+                <figure className='pl-6'><img className='h-22 w-16' src={clock} alt="Album" /></figure>
+                <div className="card-body text-white">
+                    <h2 className="card-title font-bold text-xl">Opening Hour</h2>
+                    <p>Mon to Fri at 10am to 4 pm</p>
                 </div>
-                <div className='bg-[#3A4256]  flex items-center p-6 max-w-sm mx-auto rounded-xl shadow-lg  space-x-4'>
-                    <div className='shrink-0'>
-                        <img className='h-16 w-16 rounded-2xl' src={marker} alt="" />
-                    </div>
-                    <div>
-                        <div className='text-xl font-medium text-white'>Visit Our Location</div>
-                        <p className='text-yellow-50'>Emtiaz Park , Bus Terminal , 5401 , Rangpur </p>
-                    </div>
+            </div>
+            <div className="card lg:card-side  shadow-xl  py-4 bg-accent">
+                <figure className='pl-6'><img className='h-22 w-16' src={marker} alt="Album" /></figure>
+                <div className="card-body text-white">
+                    <h2 className="card-title font-bold text-xl">Visit our location</h2>
+                    <p>Emtiaz park , Bus Terminal , 5401 , Us</p>
                 </div>
-                <div className='bg-gradient-to-r from-secondary to-primary  flex items-center p-6 max-w-sm mx-auto rounded-xl shadow-lg  space-x-4'>
-                    <div className='shrink-0'>
-                        <img className='h-16 w-16 rounded-2xl' src={phone} alt="" />
-                    </div>
-                    <div>
-                        <div className='text-xl font-medium text-white'>Contact us now</div>
-                        <p className='text-yellow-50'>Up to date tools and procedures. </p>
-                    </div>
+            </div>
+            <div className="card lg:card-side bg-base-100 shadow-xl  py-4 bg-gradient-to-r from-secondary to-primary ">
+                <figure className='pl-6'><img className='h-22 w-16' src={phone} alt="Album" /></figure>
+                <div className="card-body text-white">
+                    <h2 className="card-title font-bold text-xl">Opening Hour</h2>
+                    <p>Mon to Fri at 10am to 4 pm</p>
                 </div>
             </div>
         </div>

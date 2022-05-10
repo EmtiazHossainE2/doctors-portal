@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const menuItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/appointment'>Appointment</Link></li>
-        <li><Link to='/reviews'>Reviews</Link></li>
-        <li><Link to='/contact-us'>Contact us</Link></li>
-        <li><Link to='/about-us'>About</Link></li>
-        <li><Link to='/login'>Login</Link></li>
+        <li><Link to='/' className='text-xl'>Home</Link></li>
+        <li><Link to='/appointment' className='text-xl'>Appointment</Link></li>
+        <li><Link to='/reviews' className='text-xl'>Reviews</Link></li>
+        <li><Link to='/contact-us' className='text-xl'>Contact us</Link></li>
+        <li><Link to='/about-us' className='text-xl'>About</Link></li>
+        <li><Link to='/login' className='text-xl'>Login</Link></li>
     </>
     return (
         <div className='lg:px-12'>
@@ -22,9 +22,9 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">Doctors Portal</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-2xl">Doctors Portal</Link>
                 </div>
-                <div className="navbar-end hidden lg:flex">
+                <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {menuItems}
                     </ul>
