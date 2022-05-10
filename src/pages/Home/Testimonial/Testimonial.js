@@ -8,8 +8,10 @@ const Testimonial = ({ testimonial }) => {
                 <p className='text-justify'>{text}</p>
             </div>
             <div className='flex px-8 space-x-6 pb-5'>
-                <div>
-                    <img className='w-16 h-16' src={img} alt="man" class="rounded-xl" />
+                <div class="avatar">
+                    <div class="w-16 rounded-full ring ring-primary ring-offset-base-100 ">
+                        <img src={img} alt='man'/>
+                    </div>
                 </div>
                 <div>
                     <h2 class="card-title">{name}</h2>
