@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className="py-12 bg-[url('https://i.ibb.co/26xZX8D/footer-bg.png')] bg-cover">
+        <footer className="pt-12 bg-[url('https://i.ibb.co/26xZX8D/footer-bg.png')] bg-cover">
             <div className="footer lg:flex lg:justify-around p-10  text-base-content">
                 <div>
                     <h2 className='uppercase text-xl font-bold'>services</h2>

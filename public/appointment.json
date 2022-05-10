@@ -1,0 +1,33 @@
+[
+    {
+        "id": "1031",
+        "name": "Teeth Orthodontics",
+        "time": "8:00 AM - 9:00 AM",
+        "sit": "10 SPACES AVAILABLE"
+    },{
+        "id": "1032",
+        "name": "Cosmetic Dentistry",
+        "time": "10:05 am - 11:30 am",
+        "sit": "15 SPACES AVAILABLE"
+    },{
+        "id": "1033",
+        "name": "Teeth Cleaning",
+        "time": "8:00 AM - 9:00 AM",
+        "sit": "8 SPACES AVAILABLE"
+    },{
+        "id": "1034",
+        "name": "Teeth Cleaning",
+        "time": "8:00 AM - 9:00 AM",
+        "sit": "8 SPACES AVAILABLE"
+    },{
+        "id": "1035",
+        "name": "Cosmetic Dentistry",
+        "time": "10:05 am - 11:30 am",
+        "sit": "15 SPACES AVAILABLE"
+    },{
+        "id": "1036",
+        "name": "Teeth Orthodontics",
+        "time": "8:00 AM - 9:00 AM",
+        "sit": "10 SPACES AVAILABLE"
+    }
+]
