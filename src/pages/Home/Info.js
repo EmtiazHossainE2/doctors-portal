@@ -24,7 +24,7 @@ const Info = () => {
                     <p>Emtiaz park , Bus Terminal , 5401 , Us</p>
                 </div>
             </div>
-            <div className="card lg:card-side bg-base-100 shadow-xl  py-4 bg-gradient-to-r from-secondary to-primary ">
+            <div className="card lg:card-side bg-base-100 shadow-xl   py-4 bg-gradient-to-r from-secondary to-primary ">
                 <figure className='pl-6'><img className='h-22 w-16' src={phone} alt="Album" /></figure>
                 <div className="card-body text-white">
                     <h2 className="card-title font-bold text-xl">Opening Hour</h2>

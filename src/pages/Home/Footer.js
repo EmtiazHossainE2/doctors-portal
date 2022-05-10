@@ -5,7 +5,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
         <footer className="py-12 bg-[url('https://i.ibb.co/26xZX8D/footer-bg.png')] bg-cover">
-            <div class="footer  p-10  text-base-content">
+            <div className="footer flex justify-around p-10  text-base-content">
                 <div>
                     <h2 className='uppercase text-xl font-bold'>services</h2>
                     <Link to='/'>Emergency Checkup</Link>
