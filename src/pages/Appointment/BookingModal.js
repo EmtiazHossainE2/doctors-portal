@@ -1,7 +1,30 @@
+import { format } from 'date-fns';
 import React from 'react';
 
-const BookingModal = ({ treatment }) => {
+const BookingModal = ({ selected, treatment,setTreatment }) => {
     const { name, slots } = treatment
+
+    const handleBooking = event => {
+        event.preventDefault()
+        // const slot = event.target.slot.value 
+        // const name = event.target.name.value 
+        // const phone = event.target.phone.value 
+        // const email = event.target.email.value
+        const bookingValue = {
+            name: treatment.name,
+            date : event.target.date.value ,
+            slot : event.target.slot.value ,
+            myName : event.target.myName.value ,
+            phone : event.target.phone.value ,
+            email : event.target.email.value
+        }
+        console.log(bookingValue);
+        setTreatment(null)
+
+
+    }
+
+
     return (
         <div>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -10,13 +33,15 @@ const BookingModal = ({ treatment }) => {
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg">{name}</h3>
                     <div className='text-center '>
-                        <form className='space-y-3 pt-8 '>
-                            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                            <input type="text" placeholder="Full Name" class="input input-bordered w-full max-w-xs" />
-                            <input type="email" placeholder="Enter Email" class="input input-bordered w-full max-w-xs" />
-                            <input type="number" placeholder="Phone Number" class="input input-bordered w-full max-w-xs" />
-                            <input type="submit" value="Submit" class="btn btn-black text-white w-full max-w-xs" />
+                        <form onSubmit={handleBooking} className='space-y-4 pt-8 '>
+                            <input type="text" name='date' disabled value={format(selected, 'PP')} class="input input-bordered w-full max-w-md text-lg " />
+                            <select name='slot' class="select select-bordered w-full max-w-md space-y-8 text-lg">
+                                {slots.map(slot => <option value={slot}>{slot}</option>)}
+                            </select>
+                            <input type="text" placeholder="Full Name" name='myName' class="input input-bordered w-full max-w-md text-lg" />
+                            <input type="email" placeholder="Enter Email" name='email' class="input input-bordered w-full max-w-md text-lg" />
+                            <input type="number" placeholder="Phone Number" name='phone' class="input input-bordered w-full max-w-md text-lg" />
+                            <input type="submit" value="Submit" class="btn btn-black text-white w-full max-w-md text-lg" />
                         </form>
                     </div>
                 </div>

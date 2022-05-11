@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react';
 import BookingModal from './BookingModal';
 import SingleAppointment from './SingleAppointment';
 
-const AvailableAppointment = ({selected}) => {
+const AvailableAppointment = ({ selected }) => {
     const [appointments, setAppointments] = useState([])
-    const [treatment , setTreatment] = useState(null)
+    const [treatment, setTreatment] = useState(null)
     useEffect(() => {
         fetch('appointment.json')
             .then(res => res.json())
             .then(data => setAppointments(data))
     }, [])
-    
+
 
     return (
         <div className=''>
@@ -27,7 +27,11 @@ const AvailableAppointment = ({selected}) => {
                     ></SingleAppointment>)
                 }
             </div>
-            {treatment && <BookingModal treatment={treatment}/>}
+            {treatment && <BookingModal
+                selected={selected}
+                treatment={treatment}
+                setTreatment={setTreatment}>
+            </BookingModal>}
         </div>
     );
 };
