@@ -18,7 +18,7 @@ const SingleAppointment = ({ appointment,setTreatment }) => {
                     htmlFor="booking-modal" 
                     disabled={slots.length===0}
                     onClick={() => setTreatment(appointment)} 
-                    className="btn btn-primary text-white uppercase bg-gradient-to-r from-secondary to-primary" >Book Appointment</label>
+                    className="btn btn-sm btn-primary text-white uppercase bg-gradient-to-r from-secondary to-primary" >Book Appointment</label>
                 </div>
             </div>
         </div>

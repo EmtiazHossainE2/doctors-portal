@@ -2,14 +2,13 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    const activeLink = 'btn btn-secondary text-white  my-1 mx-0 md:my-0 md:mx-2 border-none'
     const menuItems = <>
-        <li><NavLink to='/' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Home</NavLink></li>
-        <li><NavLink to='/appointment' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Appointment</NavLink></li>
-        <li><NavLink to='/reviews' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Reviews</NavLink></li>
-        <li><NavLink to='/contact-us' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Contact us</NavLink></li>
-        <li><NavLink to='/about-us' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>About</NavLink></li>
-        <li><NavLink to='/login' className={({ isActive }) => (isActive ? activeLink : 'text-xl')}>Login</NavLink></li>
+        <li><NavLink to='/' >Home</NavLink></li>
+        <li><NavLink to='/appointment' >Appointment</NavLink></li>
+        <li><NavLink to='/reviews' >Reviews</NavLink></li>
+        <li><NavLink to='/contact-us' >Contact us</NavLink></li>
+        <li><NavLink to='/about-us' >About</NavLink></li>
+        <li><NavLink to='/login' >Login</NavLink></li>
     </>
     return (
         <div className='lg:px-12'>
