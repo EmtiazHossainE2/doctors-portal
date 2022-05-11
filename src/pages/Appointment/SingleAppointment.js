@@ -1,7 +1,6 @@
 import React from 'react';
-import FocusButton from '../../conponents/FocusButton';
 
-const SingleAppointment = ({ appointment }) => {
+const SingleAppointment = ({ appointment,setTreatment }) => {
     const { name, slots } = appointment
     return (
         <div className="card lg:max-w-lg  shadow-md">
@@ -15,7 +14,11 @@ const SingleAppointment = ({ appointment }) => {
                 }</p>
                 <p className=' uppercase'>{slots.length} {slots.length > 1 ? "spaces" : 'space'} available</p>
                 <div>
-                    <button disabled={slots.length===0} className="btn btn-primary text-white uppercase bg-gradient-to-r from-secondary to-primary">Book Appointment</button>
+                    <label 
+                    htmlFor="booking-modal" 
+                    disabled={slots.length===0}
+                    onClick={() => setTreatment(appointment)} 
+                    className="btn btn-primary text-white uppercase bg-gradient-to-r from-secondary to-primary" >Book Appointment</label>
                 </div>
             </div>
         </div>
