@@ -1,33 +1,57 @@
 [
     {
-        "id": "1031",
-        "name": "Teeth Orthodontics",
-        "time": "8:00 AM - 9:00 AM",
-        "sit": "10 SPACES AVAILABLE"
-    },{
-        "id": "1032",
-        "name": "Cosmetic Dentistry",
-        "time": "10:05 am - 11:30 am",
-        "sit": "15 SPACES AVAILABLE"
-    },{
-        "id": "1033",
-        "name": "Teeth Cleaning",
-        "time": "8:00 AM - 9:00 AM",
-        "sit": "8 SPACES AVAILABLE"
-    },{
-        "id": "1034",
-        "name": "Teeth Cleaning",
-        "time": "8:00 AM - 9:00 AM",
-        "sit": "8 SPACES AVAILABLE"
-    },{
-        "id": "1035",
-        "name": "Cosmetic Dentistry",
-        "time": "10:05 am - 11:30 am",
-        "sit": "15 SPACES AVAILABLE"
-    },{
-        "id": "1036",
-        "name": "Teeth Orthodontics",
-        "time": "8:00 AM - 9:00 AM",
-        "sit": "10 SPACES AVAILABLE"
+      "_id": 1,
+      "name": "Teeth Orthodontics",
+      "slots": [
+        "08.00 AM - 08.30 AM",
+        "08.30 AM - 09.00 AM",
+        "09.00 AM - 9.30 AM",
+        "09.30 AM - 10.00 AM",
+        "10.00 AM - 10.30 AM",
+        "10.30 AM - 11.00 AM"
+      ]
+    },
+    {
+      "_id": 2,
+      "name": "Cosmetic Dentistry",
+      "slots": [
+        "09.00 AM - 9.30 AM",
+        "09.30 AM - 10.00 AM",
+        "10.00 AM - 10.30 AM",
+        "10.30 AM - 11.00 AM"
+      ]
+    },
+    {
+      "_id": 3,
+      "name": "Teeth Cleaning",
+      "slots": []
+    },
+    {
+      "_id": 4,
+      "name": "Cavity Protection",
+      "slots": [
+        "10.00 AM - 10.30 AM",
+        "10.30 AM - 11.00 AM"
+      ]
+    },
+    {
+      "_id": 5,
+      "name": "Pediatric Dental",
+      "slots": [
+        "08.30 AM - 09.00 AM",
+        "09.00 AM - 9.30 AM",
+        "09.30 AM - 10.00 AM",
+        "10.00 AM - 10.30 AM",
+        "10.30 AM - 11.00 AM"
+      ]
+    },
+    {
+      "_id": 6,
+      "name": "Oral Surgery",
+      "slots": [
+        "09.30 AM - 10.00 AM",
+        "10.00 AM - 10.30 AM",
+        "10.30 AM - 11.00 AM"
+      ]
     }
-]
+  ]
