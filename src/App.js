@@ -9,10 +9,12 @@ import Contact from './pages/Contact/Contact';
 import Home from './pages/Home/Home';
 import Reviews from './pages/Reviews/Reviews';
 import Navbar from './pages/Shared/Navbar';
+import { Toaster } from 'react-hot-toast';
 const App = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <Navbar/>
+            <Toaster/>
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/home' element={<Home></Home>}></Route>

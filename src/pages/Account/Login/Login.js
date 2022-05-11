@@ -2,6 +2,7 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, loading, googleError] = useSignInWithGoogle(auth);
@@ -15,7 +16,8 @@ const Login = () => {
     //error 
     let errorMessage;
     if (googleError) {
-        errorMessage = <p className='text-red-500'> Try Again Please </p>
+        errorMessage = <p className='text-red-500 pt-3 text-lg'> Pop up is Closed by user </p>
+        toast.error(`Something is Wrong,Try Again`, { id: "googleError" });
     }
 
 
