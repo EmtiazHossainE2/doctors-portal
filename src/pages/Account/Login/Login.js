@@ -106,8 +106,8 @@ const Login = () => {
                                     {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
                                 </label>
                             </div>
-                            <label class="label pb-2">
-                                <p class="label-text-alt font-bold text-primary text-[15px] link link-hover">Forgot password?</p>
+                            <label className="label pb-2">
+                                <p className="label-text-alt font-bold text-primary text-[15px] link link-hover">Forgot password?</p>
                             </label>
                             <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                         </form>
