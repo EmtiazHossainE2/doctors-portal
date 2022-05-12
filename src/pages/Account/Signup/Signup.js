@@ -43,7 +43,6 @@ const SignUp = () => {
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.myName });
-        console.log(data);
     };
 
     return (

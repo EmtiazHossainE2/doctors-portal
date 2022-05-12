@@ -1,7 +1,10 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/firebase.init';
 
 const BookingModal = ({ selected, treatment, setTreatment }) => {
+    const [user] = useAuthState(auth)
     const { name, slots } = treatment
 
     const handleBooking = event => {
@@ -36,10 +39,12 @@ const BookingModal = ({ selected, treatment, setTreatment }) => {
                         <form onSubmit={handleBooking} className='space-y-4 pt-8 '>
                             <input type="text" name='date' disabled value={format(selected, 'PP')} className="input input-bordered w-full max-w-md text-lg " />
                             <select name='slot' className="select select-bordered w-full max-w-md space-y-8 text-lg">
-                                {slots.map(slot => <option value={slot}>{slot}</option>)}
+                                {slots.map((slot , index) =>
+                                    <option value={slot} key={index}>{slot}</option>)
+                                }
                             </select>
-                            <input type="text" placeholder="Full Name" name='myName' className="input input-bordered w-full max-w-md text-lg" />
-                            <input type="email" placeholder="Enter Email" name='email' className="input input-bordered w-full max-w-md text-lg" />
+                            <input type="text" disabled value={user?.displayName || ''} name='myName' className="input input-bordered w-full max-w-md text-lg" />
+                            <input type="email" disabled value={user?.email || ''} name='email' className="input input-bordered w-full max-w-md text-lg" />
                             <input type="number" placeholder="Phone Number" name='phone' className="input input-bordered w-full max-w-md text-lg" />
                             <input type="submit" value="Submit" className="btn btn-black text-white w-full max-w-md text-lg" />
                         </form>
