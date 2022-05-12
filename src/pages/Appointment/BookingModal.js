@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import React from 'react';
 
-const BookingModal = ({ selected, treatment,setTreatment }) => {
+const BookingModal = ({ selected, treatment, setTreatment }) => {
     const { name, slots } = treatment
 
     const handleBooking = event => {
@@ -12,11 +12,11 @@ const BookingModal = ({ selected, treatment,setTreatment }) => {
         // const email = event.target.email.value
         const bookingValue = {
             name: treatment.name,
-            date : event.target.date.value ,
-            slot : event.target.slot.value ,
-            myName : event.target.myName.value ,
-            phone : event.target.phone.value ,
-            email : event.target.email.value
+            date: event.target.date.value,
+            slot: event.target.slot.value,
+            myName: event.target.myName.value,
+            phone: event.target.phone.value,
+            email: event.target.email.value
         }
         console.log(bookingValue);
         setTreatment(null)
@@ -34,14 +34,14 @@ const BookingModal = ({ selected, treatment,setTreatment }) => {
                     <h3 className="font-bold text-lg">{name}</h3>
                     <div className='text-center '>
                         <form onSubmit={handleBooking} className='space-y-4 pt-8 '>
-                            <input type="text" name='date' disabled value={format(selected, 'PP')} class="input input-bordered w-full max-w-md text-lg " />
-                            <select name='slot' class="select select-bordered w-full max-w-md space-y-8 text-lg">
+                            <input type="text" name='date' disabled value={format(selected, 'PP')} className="input input-bordered w-full max-w-md text-lg " />
+                            <select name='slot' className="select select-bordered w-full max-w-md space-y-8 text-lg">
                                 {slots.map(slot => <option value={slot}>{slot}</option>)}
                             </select>
-                            <input type="text" placeholder="Full Name" name='myName' class="input input-bordered w-full max-w-md text-lg" />
-                            <input type="email" placeholder="Enter Email" name='email' class="input input-bordered w-full max-w-md text-lg" />
-                            <input type="number" placeholder="Phone Number" name='phone' class="input input-bordered w-full max-w-md text-lg" />
-                            <input type="submit" value="Submit" class="btn btn-black text-white w-full max-w-md text-lg" />
+                            <input type="text" placeholder="Full Name" name='myName' className="input input-bordered w-full max-w-md text-lg" />
+                            <input type="email" placeholder="Enter Email" name='email' className="input input-bordered w-full max-w-md text-lg" />
+                            <input type="number" placeholder="Phone Number" name='phone' className="input input-bordered w-full max-w-md text-lg" />
+                            <input type="submit" value="Submit" className="btn btn-black text-white w-full max-w-md text-lg" />
                         </form>
                     </div>
                 </div>

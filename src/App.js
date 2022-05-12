@@ -14,7 +14,6 @@ const App = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <Navbar/>
-            <Toaster/>
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/home' element={<Home></Home>}></Route>
@@ -26,6 +25,7 @@ const App = () => {
                 <Route path='/signup' element={<Signup/>}></Route>
                 <Route path='*' element={<NotFound/>}></Route>
             </Routes>
+            <Toaster/>
         </div>
     );
 };
