@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
@@ -8,35 +8,41 @@ import Loading from '../../../conponents/Loading';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const navigate = useNavigate()
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [signInWithEmailAndPassword,user,loading,error, ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
 
-    useEffect( () =>{
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    //user
+    useEffect(() => {
         if (user || googleUser) {
-            // navigate(from, { replace: true });
+            navigate(from, { replace: true });
+            toast.success(`Welcome to Doctors Portal `, { id: 'success' })
         }
-    }, [googleUser , user])
+    }, [googleUser, user, from, navigate])
 
+    //loading
     if (loading || googleLoading) {
         return <Loading></Loading>
     }
 
     //error 
-    let signInError ;
-    if(error){
-        signInError= <p className='text-red-500 text-lg'>Could not find user</p>
+    let signInError;
+    if (error) {
+        signInError = <p className='text-red-500 text-lg'>Could not find user</p>
     }
     // googleError 
-    let gError ;
-    if(googleError){
-        gError= <p className='text-red-500 text-lg'>Pop up is Closed by user</p>
+    let gError;
+    if (googleError) {
+        gError = <p className='text-red-500 text-lg'>Pop up is Closed by user</p>
     }
 
     //login 
     const onSubmit = data => {
         console.log(data)
-        signInWithEmailAndPassword(data.email , data.value)
+        signInWithEmailAndPassword(data.email, data.value)
     };
 
     return (
@@ -68,8 +74,8 @@ const Login = () => {
                                     })}
                                 />
                                 <label class="label">
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500 text-[15px]">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500 text-[15px]">{errors.email.message}</span>}
+                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500 text-[15px]">{errors.email.message}</span>}
+                                    {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500 text-[15px]">{errors.email.message}</span>}
                                 </label>
                             </div>
                             <div class="form-control w-full max-w-xs">
@@ -96,16 +102,20 @@ const Login = () => {
                                     })}
                                 />
                                 <label class="label pb-4">
-                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
-                                {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
+                                    {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
+                                    {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
+                                    {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
                                 </label>
                             </div>
 
                             <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
-
                         </form>
+                        <p className='toggle-page py-2 '>
+                            New to Doctors Portal ?{" "}
+                            <span className='cursor-pointer text-blue-600' onClick={() => navigate("/signup")}>Create New Account</span>
+                        </p>
                     </div>
+
                     <div className="divider">OR</div>
                     <button onClick={() => signInWithGoogle()} className="btn btn-outline uppercase text-lg ">Continue With Google</button>
                 </div>
