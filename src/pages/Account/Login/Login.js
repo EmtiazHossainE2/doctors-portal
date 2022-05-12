@@ -41,8 +41,7 @@ const Login = () => {
 
     //login 
     const onSubmit = data => {
-        console.log(data)
-        signInWithEmailAndPassword(data.email, data.value)
+        signInWithEmailAndPassword(data.email, data.password)
     };
 
     return (
@@ -54,14 +53,14 @@ const Login = () => {
                     {gError}
                     <div>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text text-lg">Email</span>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text text-lg">Email</span>
                                 </label>
                                 <input
                                     type="email"
                                     placeholder="Your Email"
-                                    class="input input-bordered w-full max-w-xs text-lg"
+                                    className="input input-bordered w-full max-w-xs text-lg"
                                     {...register("email", {
                                         required: {
                                             value: true,
@@ -73,19 +72,19 @@ const Login = () => {
                                         }
                                     })}
                                 />
-                                <label class="label">
+                                <label className="label">
                                     {errors.email?.type === 'required' && <span className="label-text-alt text-red-500 text-[15px]">{errors.email.message}</span>}
                                     {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500 text-[15px]">{errors.email.message}</span>}
                                 </label>
                             </div>
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text text-lg">Password</span>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text text-lg">Password</span>
                                 </label>
                                 <input
                                     type="password"
                                     placeholder="Password"
-                                    class="input input-bordered w-full max-w-xs text-lg"
+                                    className="input input-bordered w-full max-w-xs text-lg"
                                     {...register("password", {
                                         required: {
                                             value: true,
@@ -101,13 +100,15 @@ const Login = () => {
                                         }
                                     })}
                                 />
-                                <label class="label pb-4">
+                                <label className="label ">
                                     {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
                                     {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
                                     {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-500 text-[15px]">{errors.password.message}</span>}
                                 </label>
                             </div>
-
+                            <label class="label pb-2">
+                                <p class="label-text-alt font-bold text-primary text-[15px] link link-hover">Forgot password?</p>
+                            </label>
                             <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                         </form>
                         <p className='toggle-page py-2 '>
