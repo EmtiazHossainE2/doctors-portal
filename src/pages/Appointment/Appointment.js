@@ -4,12 +4,12 @@ import AppointmentBanner from './AppointmentBanner';
 import AvailableAppointment from './AvailableAppointment';
 
 const Appointment = () => {
-    const [selected, setSelected] = useState(new Date())
+    const [date, setDate] = useState(new Date())
     return (
         <div>
             <div className='px-12 '>
-                <AppointmentBanner selected={selected} setSelected={setSelected}/>
-                <AvailableAppointment selected={selected}/>
+                <AppointmentBanner date={date} setDate={setDate}/>
+                <AvailableAppointment date={date}/>
             </div>
             <Footer />
         </div>

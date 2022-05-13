@@ -4,7 +4,7 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
 
-const AppointmentBanner = ({selected, setSelected}) => {
+const AppointmentBanner = ({date,  setDate}) => {
     return (
         <div className=" py-16  bg-[url('https://i.ibb.co/Fq8m6Fh/bg.png')] bg-cover ">
             <div className="hero-content flex justify-around lg:mb-12  flex-col lg:flex-row-reverse  ">
@@ -12,8 +12,8 @@ const AppointmentBanner = ({selected, setSelected}) => {
                 <div className=' border-2 p-5 bg-white shadow-lg rounded-lg'>
                     <DayPicker 
                     mode="single"
-                    selected={selected}
-                    onSelect={setSelected}
+                    date={date}
+                    setDate={setDate}
                     />
                 </div>
             </div>

@@ -40,7 +40,7 @@ const Forget = () => {
     }
 
     return (
-        <div className='flex justify-center items-center'>
+        <div className='flex h-[50vh] justify-center items-center'>
             <div className="card lg:max-w-lg  shadow-xl">
                 <div className="card-body">
                     {email?.error && <p className="text-red-500"> {email.error}</p>}

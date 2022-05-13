@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import BookingModal from './BookingModal';
 import SingleAppointment from './SingleAppointment';
 
-const AvailableAppointment = ({ selected }) => {
+const AvailableAppointment = ({ date }) => {
     const [appointments, setAppointments] = useState([])
     const [treatment, setTreatment] = useState(null)
     useEffect(() => {
@@ -16,7 +16,7 @@ const AvailableAppointment = ({ selected }) => {
     return (
         <div className=''>
             <div className='text-center'>
-                <h2 className='text-xl font-bold text-primary uppercase py-16'>Available Appointments on {format(selected, 'PP')}</h2>
+                <h2 className='text-xl font-bold text-primary uppercase py-16'>Available Appointments on {format(date, 'PP')}</h2>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-8 mb-12'>
                 {
@@ -28,7 +28,7 @@ const AvailableAppointment = ({ selected }) => {
                 }
             </div>
             {treatment && <BookingModal
-                selected={selected}
+                date={date}
                 treatment={treatment}
                 setTreatment={setTreatment}>
             </BookingModal>}
