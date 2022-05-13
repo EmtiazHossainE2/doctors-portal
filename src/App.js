@@ -11,6 +11,7 @@ import Reviews from './pages/Reviews/Reviews';
 import Navbar from './pages/Shared/Navbar';
 import { Toaster } from 'react-hot-toast';
 import RequireAuth from './pages/Account/Login/RequireAuth';
+import Forget from './pages/Account/Login/Forget';
 const App = () => {
     return (
         <div className='max-w-7xl mx-auto'>
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path='/contact-us' element={<Contact/>}></Route>
                 <Route path='/reviews' element={<Reviews/>}></Route>
                 <Route path='/signup' element={<Signup/>}></Route>
+                <Route path='/forget' element={<Forget/>}></Route>
                 <Route path='*' element={<NotFound/>}></Route>
             </Routes>
             <Toaster/>

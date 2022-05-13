@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
@@ -107,7 +107,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <label className="label pb-2">
-                                <p className="label-text-alt font-bold text-primary text-[15px] link link-hover">Forgot password?</p>
+                                <Link to='/forget' className="label-text-alt font-bold text-primary text-[15px] link link-hover">Forgot password?</Link>
                             </label>
                             <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                         </form>
