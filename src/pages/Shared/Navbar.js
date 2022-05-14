@@ -33,6 +33,7 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ">
                             {menuItems}
+                            <label for="my-drawer-2" class="btn btn-outline drawer-button lg:hidden">Dashboard Menu</label>
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-2xl">Doctors Portal</Link>
