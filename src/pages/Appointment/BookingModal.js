@@ -8,13 +8,15 @@ import auth from '../../Firebase/firebase.init';
 const BookingModal = ({ date, treatment, setTreatment }) => {
     const [user] = useAuthState(auth)
     const { name, slots } = treatment
+    const formattedDate = format(date, 'PP');
 
     const handleBooking = event => {
         event.preventDefault()
+        const slot = event.target.slot.value;
         const bookingInfo = {
             treatment: treatment.name,
-            date: event.target.date.value,
-            slot: event.target.slot.value,
+            date: formattedDate,
+            slot,
             patient: event.target.patient.value,
             phone: event.target.phone.value,
             email: event.target.email.value
@@ -28,8 +30,12 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
         else{
             axios.post('http://localhost:5000/booking', bookingInfo)
             .then(function (response) {
-                console.log(response);
-                toast.success(`Your Appointment is successfully booking `, { id: "booking" });
+                if(response.data.success){
+                    toast.success(`Your Appointment is set, ${bookingInfo?.date} at ${bookingInfo?.slot}` , { id: "booking" })
+                }
+                else{
+                    toast.error(`Already have an appointment on, ${response?.data?.booking?.date} at ${response?.data?.booking?.slot}` , { id: "bookingError" })
+                }
                 setTreatment(null)
             })
             .catch(function (error) {
@@ -38,10 +44,23 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
             });
         }
 
-
-        
-
-
+        // fetch('http://localhost:5000/booking', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(bookingInfo)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if(data.success){
+        //             toast.success(`Your Appointment is set, ${bookingInfo?.date} at ${bookingInfo?.slot}` , { id: "booking" })
+        //         }
+        //         else{
+        //             toast.error(`Already have an appointment on, ${data?.booking?.date} at ${data?.booking?.slot}` , { id: "bookingError" })
+        //         }
+        //         setTreatment(null)
+        //     });
 
 
 
