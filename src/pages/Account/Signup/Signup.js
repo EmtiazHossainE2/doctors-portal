@@ -4,9 +4,11 @@ import auth from '../../../Firebase/firebase.init';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import Loading from '../../../conponents/Loading';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [
@@ -15,6 +17,7 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth ,{ sendEmailVerification: true });
+    const [token] = useToken(user|| googleUser)
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -22,20 +25,20 @@ const SignUp = () => {
 
     //user
     useEffect(() => {
-        if (user) {
-            navigate(from, { replace: true });
+        if (user|| googleUser) {
+            // navigate(from, { replace: true });
             toast.success(`Welcome to Doctors Portal `, { id: 'success' })
         }
-    }, [user, from, navigate])
+    }, [user, from, navigate,googleUser])
 
     //loading
-    if (loading || updating) {
+    if (loading || updating || googleLoading) {
         return <Loading></Loading>
     }
 
     //error 
     let signUpError;
-    if (error) {
+    if (error || googleError || updateError) {
         signUpError = <p className='text-red-500 text-lg'>Something is wrong</p>
     }
 
@@ -133,6 +136,9 @@ const SignUp = () => {
                             <span className='cursor-pointer text-blue-600' onClick={() => navigate("/login")}>Log In</span>
                         </p>
                     </div>
+
+                    <div className="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline uppercase text-lg ">Continue With Google</button>
                 </div>
             </div>
         </div>
