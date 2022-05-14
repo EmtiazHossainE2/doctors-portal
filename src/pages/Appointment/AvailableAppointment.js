@@ -6,11 +6,13 @@ import SingleAppointment from './SingleAppointment';
 const AvailableAppointment = ({ date }) => {
     const [appointments, setAppointments] = useState([])
     const [treatment, setTreatment] = useState(null)
+    const formattedDate = format(date, 'PP');
+
     useEffect(() => {
-        fetch('http://localhost:5000/appointment')
+        fetch(`http://localhost:5000/available?date=${formattedDate}`)
             .then(res => res.json())
             .then(data => setAppointments(data))
-    }, [])
+    }, [formattedDate])
 
 
     return (
