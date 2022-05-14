@@ -15,6 +15,7 @@ const AppointmentBanner = ({date, setDate}) => {
                     selected={date}
                     onSelect={setDate}
                     />
+                    {/* <input type="date" name="" min="2022-05-13" id="" /> */}
                 </div>
             </div>
         </div>

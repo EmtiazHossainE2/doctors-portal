@@ -16,8 +16,8 @@ const MyAppointment = () => {
 
     return (
         <div className='md:p-4'>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -29,14 +29,14 @@ const MyAppointment = () => {
                     </thead>
                     <tbody>
                         {
-                            myAppointments.map((a,index) => 
-                            <tr>
-                                <th>{index + 1}</th>
-                                <td>{a.patient}</td>
-                                <td>{a.treatment}</td>
-                                <td>{a.slot}</td>
-                                <td>{a.date}</td>
-                            </tr>)
+                            myAppointments.map((a, index) =>
+                                <tr key={index}>
+                                    <th>{index + 1}</th>
+                                    <td>{a.patient}</td>
+                                    <td>{a.treatment}</td>
+                                    <td>{a.slot}</td>
+                                    <td>{a.date}</td>
+                                </tr>)
                         }
                     </tbody>
                 </table>
