@@ -9,7 +9,7 @@ const Appointment = () => {
         <div>
             <div className='px-12 '>
                 <AppointmentBanner date={date} setDate={setDate}/>
-                <AvailableAppointment date={date}/>
+                <AvailableAppointment  date={date}/>
             </div>
             <Footer />
         </div>
