@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {  useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
@@ -25,11 +25,11 @@ const SignUp = () => {
 
     //user
     useEffect(() => {
-        if (user|| googleUser) {
-            // navigate(from, { replace: true });
+        if (token) {
+            navigate(from, { replace: true });
             toast.success(`Welcome to Doctors Portal `, { id: 'success' })
         }
-    }, [user, from, navigate,googleUser])
+    }, [token,from,navigate])
 
     //loading
     if (loading || updating || googleLoading) {
