@@ -4,32 +4,46 @@ import Swal from 'sweetalert2';
 const UserRow = ({ user, index, refetch }) => {
     const { email, lastLogin, role } = user
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
-            method: 'PUT',
-            headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            },
+        const url = `http://localhost:5000/user/admin/${email}`
+        Swal.fire({
+            title: "Are you sure?",
+            text: "If you make admin . Admin can access everything",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Admin",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    },
+                })
+                    .then(res => {
+                        if (res.status === 403) {
+                            Swal.fire({
+                                text: 'Your are unable to make Admin',
+                                icon: 'error',
+                                confirmButtonText: 'Okay'
+                            })
+                        }
+                        return res.json()
+                    })
+                    .then(data => {
+                        if (data.modifiedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                text: `Successfully added an Admin`,
+                                icon: 'success',
+                                confirmButtonText: 'Thank you.'
+                            })
+                        }
+                    })
+            }
         })
-            .then(res => {
-                if(res.status === 403){
-                    Swal.fire({
-                        text: 'Your are unable to make Admin',
-                        icon: 'error',
-                        confirmButtonText: 'Okay'
-                    })
-                }
-                return res.json()
-            })
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    refetch()
-                    Swal.fire({
-                        text: `Successfully added an Admin`,
-                        icon: 'success',
-                        confirmButtonText: 'Thank you.'
-                    })
-                }
-            })
+
     }
     return (
         <tr>
