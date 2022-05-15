@@ -4,8 +4,9 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import auth from '../../Firebase/firebase.init';
+import Swal from 'sweetalert2'
 
-const BookingModal = ({ date, treatment, setTreatment,refetch }) => {
+const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
     const [user] = useAuthState(auth)
     const { name, slots } = treatment
     const formattedDate = format(date, 'PP');
@@ -23,26 +24,37 @@ const BookingModal = ({ date, treatment, setTreatment,refetch }) => {
         }
 
 
-        if(bookingInfo.phone === ''){
-            toast.error(`Please Provide Your Contact Number `, { id: "phoneError" });
-            return 
-        }
-        else{
-            axios.post('http://localhost:5000/booking', bookingInfo)
-            .then(function (response) {
-                if(response.data.success){
-                    toast.success(`Your Appointment is set, ${bookingInfo?.date} at ${bookingInfo?.slot}` , { id: "booking" })
-                }
-                else{
-                    toast.error(`Already have an appointment on, ${response?.data?.booking?.date} at ${response?.data?.booking?.slot}` , { id: "bookingError" })
-                }
-                refetch()
-                setTreatment(null)
+        if (bookingInfo.phone === '') {
+            Swal.fire({
+                icon: 'error',
+                confirmButtonText: 'Provide Phone Number'
             })
-            .catch(function (error) {
-                console.log(error);
-                toast.error(`Something is wrong . Try later `, { id: "bookingError" });
-            });
+            return
+        }
+        else {
+            axios.post('http://localhost:5000/booking', bookingInfo)
+                .then(function (response) {
+                    if (response.data.success) {
+                        Swal.fire({
+                            text: `Your Appointment is set, ${bookingInfo?.date} at ${bookingInfo?.slot}`,
+                            icon: 'success',
+                            confirmButtonText: 'Thank you.'
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            text: `Already have an appointment on, ${response?.data?.booking?.date} at ${response?.data?.booking?.slot}`,
+                            icon: 'error',
+                            confirmButtonText: 'Try Another Day'
+                        })
+                    }
+                    refetch()
+                    setTreatment(null)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    toast.error(`Something is wrong . Try later `, { id: "bookingError" });
+                });
         }
 
         // fetch('http://localhost:5000/booking', {
