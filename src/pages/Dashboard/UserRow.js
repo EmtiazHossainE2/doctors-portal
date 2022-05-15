@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 const UserRow = ({ user, index, refetch }) => {
     const { email, lastLogin, role } = user
     const makeAdmin = () => {
-        const url = `http://localhost:5000/user/admin/${email}`
+        const url = `https://e-doctors-portal.herokuapp.com/user/admin/${email}`
         Swal.fire({
             title: "Are you sure?",
             text: "If you make admin . Admin can access everything",

@@ -5,7 +5,7 @@ import UserRow from './UserRow';
 
 const AllUsers = () => {
     const { data: users, isLoading, error, refetch } = useQuery(['users'], () =>
-        fetch(`http://localhost:5000/user`, {
+        fetch(`https://e-doctors-portal.herokuapp.com/user`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,11 +32,11 @@ const AllUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <UserRow 
-                            key={index}
-                            user={user}
-                            index={index}
-                            refetch={refetch}
+                            users.map((user, index) => <UserRow
+                                key={index}
+                                user={user}
+                                index={index}
+                                refetch={refetch}
                             ></UserRow>)
                         }
                     </tbody>

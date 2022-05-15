@@ -1,6 +1,7 @@
 import { useAuthState, useSendEmailVerification } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Navigate, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 import Loading from "../../../conponents/Loading";
 import auth from "../../../Firebase/firebase.init";
 
@@ -26,7 +27,11 @@ const RequireAuth = ({ children }) => {
                     <button className='btn btn-black text-white   mt-4 py-2 '
                         onClick={async () => {
                             await sendEmailVerification();
-                            toast.success('Sent email verification success . Check your email .');
+                            Swal.fire({
+                                text: `Successfully Sent email verification .Check Email`,
+                                icon: 'success',
+                                confirmButtonText: 'Okay'
+                            })
                         }}
                     >
                         Resend Verification

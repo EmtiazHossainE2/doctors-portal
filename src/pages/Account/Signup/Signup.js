@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import Loading from '../../../conponents/Loading';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import useToken from '../../hooks/useToken';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -42,9 +43,14 @@ const SignUp = () => {
         signUpError = <p className='text-red-500 text-lg'>Something is wrong</p>
     }
 
-    //login 
+    //signup 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password)
+        Swal.fire({
+            text: `An email verification send  .Check Email`,
+            icon: 'success',
+            confirmButtonText: 'Okay'
+        })
         await updateProfile({ displayName: data.myName });
     };
 

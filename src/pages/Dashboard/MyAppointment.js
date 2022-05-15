@@ -11,7 +11,7 @@ const MyAppointment = () => {
     const [user] = useAuthState(auth)
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/booking?patient=${user?.email}`, {
+            fetch(`https://e-doctors-portal.herokuapp.com/booking?patient=${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ const MyAppointment = () => {
                     setMyAppointments(data)
                 })
         }
-    }, [user,navigate])
+    }, [user, navigate])
 
 
     return (
