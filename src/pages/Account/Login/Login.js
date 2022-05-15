@@ -5,23 +5,24 @@ import auth from '../../../Firebase/firebase.init';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import Loading from '../../../conponents/Loading';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
-
+    const [token] = useToken(user || googleUser)
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
     //user
     useEffect(() => {
-        if (user || googleUser) {
+        if (token) {
             navigate(from, { replace: true });
             toast.success(`Welcome to Doctors Portal `, { id: 'success' })
         }
-    }, [googleUser, user, from, navigate])
+    }, [token, from, navigate])
 
     //loading
     if (loading || googleLoading) {
