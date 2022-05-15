@@ -13,8 +13,9 @@ const UserRow = ({ user, index, refetch }) => {
             .then(res => {
                 if(res.status === 403){
                     Swal.fire({
+                        text: 'Your are unable to make Admin',
                         icon: 'error',
-                        confirmButtonText: 'Failed to make admin'
+                        confirmButtonText: 'Okay'
                     })
                 }
                 return res.json()

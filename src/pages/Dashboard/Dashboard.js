@@ -1,9 +1,13 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, Outlet } from 'react-router-dom';
 import auth from '../../Firebase/firebase.init';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
+    const [user] = useAuthState(auth)
+    const [admin] = useAdmin(user)
     const logOut = () => {
         signOut(auth)
         localStorage.removeItem('accessToken')
@@ -25,7 +29,7 @@ const Dashboard = () => {
                         <li><NavLink to='/dashboard' className='text-lg'>My Appointments</NavLink></li>
                         <li><NavLink to='/dashboard/review' className='text-lg'>My Review</NavLink></li>
                         <li><NavLink to='/dashboard/history' className='text-lg'>My History</NavLink></li>
-                        <li><NavLink to='/dashboard/user' className='text-lg'>All Users</NavLink></li>
+                        {admin && <li><NavLink to='/dashboard/user' className='text-lg'>All Users</NavLink></li>}
                         <li><button  onClick={logOut} className='text-lg'>Log Out</button></li>
                     </ul>
 

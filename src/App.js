@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes,  Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NotFound from './conponents/NotFound/NotFound';
 import About from './pages/About/About';
 import Login from './pages/Account/Login/Login';
@@ -17,37 +17,38 @@ import MyAppointment from './pages/Dashboard/MyAppointment';
 import MyReview from './pages/Dashboard/MyReview';
 import MyHistory from './pages/Dashboard/MyHistory';
 import AllUsers from './pages/Dashboard/AllUsers';
+import RequireAdmin from './pages/Account/RequireAdmin';
 const App = () => {
     return (
         <div className='max-w-7xl mx-auto'>
-            <Navbar/>
+            <Navbar />
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/home' element={<Home></Home>}></Route>
                 <Route path='/appointment' element={
                     <RequireAuth>
-                        <Appointment/>
+                        <Appointment />
                     </RequireAuth>
                 }></Route>
-                <Route path='/dashboard' element={
-                    <RequireAuth>
-                        <Dashboard/>
-                    </RequireAuth>
-                }>
-                    <Route index element={<MyAppointment/>}></Route>
-                    <Route path='review' element={<MyReview/>}></Route>
-                    <Route path='history' element={<MyHistory/>}></Route>
-                    <Route path='user' element={<AllUsers/>}></Route>
+                <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+                    <Route index element={<MyAppointment />}></Route>
+                    <Route path='review' element={<MyReview />}></Route>
+                    <Route path='history' element={<MyHistory />}></Route>
+                    <Route path='user' element={
+                        <RequireAdmin>
+                            <AllUsers />
+                        </RequireAdmin>}>
+                    </Route>
                 </Route>
-                <Route path='/login' element={<Login/>}></Route>
-                <Route path='/about-us' element={<About/>}></Route>
-                <Route path='/contact-us' element={<Contact/>}></Route>
-                <Route path='/reviews' element={<Reviews/>}></Route>
-                <Route path='/signup' element={<Signup/>}></Route>
-                <Route path='/forget' element={<Forget/>}></Route>
-                <Route path='*' element={<NotFound/>}></Route>
+                <Route path='/login' element={<Login />}></Route>
+                <Route path='/about-us' element={<About />}></Route>
+                <Route path='/contact-us' element={<Contact />}></Route>
+                <Route path='/reviews' element={<Reviews />}></Route>
+                <Route path='/signup' element={<Signup />}></Route>
+                <Route path='/forget' element={<Forget />}></Route>
+                <Route path='*' element={<NotFound />}></Route>
             </Routes>
-            <Toaster/>
+            <Toaster />
         </div>
     );
 };
