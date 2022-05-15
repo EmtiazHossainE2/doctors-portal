@@ -15,6 +15,8 @@ import Forget from './pages/Account/Login/Forget';
 import Dashboard from './pages/Dashboard/Dashboard';
 import MyAppointment from './pages/Dashboard/MyAppointment';
 import MyReview from './pages/Dashboard/MyReview';
+import MyHistory from './pages/Dashboard/MyHistory';
+import AllUsers from './pages/Dashboard/AllUsers';
 const App = () => {
     return (
         <div className='max-w-7xl mx-auto'>
@@ -34,6 +36,8 @@ const App = () => {
                 }>
                     <Route index element={<MyAppointment/>}></Route>
                     <Route path='review' element={<MyReview/>}></Route>
+                    <Route path='history' element={<MyHistory/>}></Route>
+                    <Route path='user' element={<AllUsers/>}></Route>
                 </Route>
                 <Route path='/login' element={<Login/>}></Route>
                 <Route path='/about-us' element={<About/>}></Route>

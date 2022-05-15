@@ -22,7 +22,7 @@ const Navbar = () => {
         <li>
             {user?.uid
                 ?
-                <NavLink to='/login' onClick={logOut} className='text-lg'>Log Out</NavLink>
+                <button  onClick={logOut} className='text-lg'>Log Out</button>
                 :
                 <NavLink to='/login' className='text-lg'>Log in</NavLink>}
         </li>
@@ -43,7 +43,7 @@ const Navbar = () => {
                     <Link to='/' className="btn btn-ghost normal-case text-2xl">Doctors Portal</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal p-0 space-x-4">
+                    <ul className="menu menu-horizontal p-0 space-x-4 ">
                         {menuItems}
                     </ul>
                 </div>

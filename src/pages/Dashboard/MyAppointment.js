@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { signOut } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const MyAppointment = () => {
     const navigate = useNavigate();
@@ -9,24 +11,30 @@ const MyAppointment = () => {
     const [user] = useAuthState(auth)
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/booking?patient=${user?.email}` , {
-                method : 'GET',
-                headers : {
-                    'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
+            fetch(`http://localhost:5000/booking?patient=${user?.email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 },
             })
                 .then(res => {
-                    console.log('res' , res);
-                    if(res.status === 401 || res.status === 403){
-                        navigate('/')
+                    console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth)
+                        localStorage.removeItem('accessToken')
+                        Swal.fire({
+                            icon: 'error',
+                            confirmButtonText: 'Unauthorized Access'
+                        })
+                        navigate('/login')
                     }
-                    return   res.json()
+                    return res.json()
                 })
                 .then(data => {
                     setMyAppointments(data)
                 })
         }
-    }, [user])
+    }, [user,navigate])
 
 
     return (
