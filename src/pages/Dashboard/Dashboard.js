@@ -29,7 +29,10 @@ const Dashboard = () => {
                         <li><NavLink to='/dashboard' className='text-lg'>My Appointments</NavLink></li>
                         <li><NavLink to='/dashboard/review' className='text-lg'>My Review</NavLink></li>
                         <li><NavLink to='/dashboard/history' className='text-lg'>My History</NavLink></li>
-                        {admin && <li><NavLink to='/dashboard/user' className='text-lg'>All Users</NavLink></li>}
+                        {admin && <>
+                            <li><NavLink to='/dashboard/user' className='text-lg'>All Users</NavLink></li>
+                            <li><NavLink to='/dashboard/addDoctor' className='text-lg'>Add Doctor</NavLink></li>
+                        </>}
                         <li><button  onClick={logOut} className='text-lg'>Log Out</button></li>
                     </ul>
 
