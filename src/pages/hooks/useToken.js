@@ -12,7 +12,7 @@ const useToken = user => {
             lastLogin
         }
         if (email) {
-            fetch(`https://e-doctors-portal.herokuapp.com/user/${email}`, {
+            fetch(`http://localhost:5000/user/${email}`, {
                 method: "PUT",
                 headers: {
                     "content-type": 'application/json'

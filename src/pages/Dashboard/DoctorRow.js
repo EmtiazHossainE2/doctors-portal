@@ -22,7 +22,7 @@ const DoctorRow = ({ doctor, index, refetch }) => {
                     },
                 }).then(data => {
                     // console.log(data);
-                    if (data.status ) {
+                    if (data.status) {
                         Swal.fire({
                             text: `Successfully Delete Dr ${name}`,
                             icon: 'success',

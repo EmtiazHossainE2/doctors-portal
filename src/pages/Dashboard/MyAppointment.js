@@ -11,7 +11,7 @@ const MyAppointment = () => {
     const [user] = useAuthState(auth)
     useEffect(() => {
         if (user) {
-            fetch(`https://e-doctors-portal.herokuapp.com/booking?patient=${user?.email}`, {
+            fetch(`http://localhost:5000/booking?patient=${user?.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -23,7 +23,7 @@ const MyAppointment = () => {
                         signOut(auth)
                         localStorage.removeItem('accessToken')
                         Swal.fire({
-                            text: 'Session expired sign in again . .' ,
+                            text: 'Session expired sign in again . .',
                             icon: 'error',
                             confirmButtonText: 'Okay'
                         })

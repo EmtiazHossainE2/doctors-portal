@@ -2,9 +2,9 @@ import React from 'react';
 import Swal from 'sweetalert2';
 
 const UserRow = ({ user, index, refetch }) => {
-    const { email, lastLogin, role } = user
+    const { email, role } = user
     const makeAdmin = () => {
-        const url = `https://e-doctors-portal.herokuapp.com/user/admin/${email}`
+        const url = `http://localhost:5000/user/admin/${email}`
         Swal.fire({
             title: "Are you sure?",
             text: "If you make admin . Admin can access everything",
@@ -45,6 +45,40 @@ const UserRow = ({ user, index, refetch }) => {
         })
 
     }
+
+    const handleDelete = () => {
+        const url = `http://localhost:5000/user/${email}`;
+        Swal.fire({
+            text: `Are you sure to delete  ?`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Delete",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(url, {
+                    method: 'DELETE',
+                    headers: {
+                        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    },
+                }).then(data => {
+                    // console.log(data);
+                    if (data.status) {
+                        Swal.fire({
+                            text: `Successfully Delete `,
+                            icon: 'success',
+                            confirmButtonText: 'Okay'
+                        })
+                        refetch()
+                    }
+                })
+            }
+        })
+
+    }
+
+
     return (
         <tr>
             <th>{index + 1}</th>
@@ -63,7 +97,7 @@ const UserRow = ({ user, index, refetch }) => {
                     <button onClick={makeAdmin} className='btn btn-xs'>Make Admin</button>
                 }
             </td>
-            <td><button className='btn btn-xs btn-error'>Remove</button></td>
+            <td><button onClick={handleDelete} className='btn btn-xs btn-error'>Remove</button></td>
         </tr>
     );
 };

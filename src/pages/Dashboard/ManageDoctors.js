@@ -4,14 +4,14 @@ import Loading from '../../conponents/Loading';
 import DoctorRow from './DoctorRow';
 
 const ManageDoctors = () => {
-    const {data : doctors , isLoading , refetch } = useQuery('doctors' ,() =>  fetch('http://localhost:5000/doctor' , {
-        headers : {
+    const { data: doctors, isLoading, refetch } = useQuery('doctors', () => fetch('http://localhost:5000/doctor', {
+        headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()))
 
-    if(isLoading){
-        return <Loading/>
+    if (isLoading) {
+        return <Loading />
     }
 
     return (
