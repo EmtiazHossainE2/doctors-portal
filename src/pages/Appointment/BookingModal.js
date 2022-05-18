@@ -32,7 +32,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
             return
         }
         else {
-            axios.post('http://localhost:5000/booking', bookingInfo)
+            axios.post('https://e-doctors-portal.herokuapp.com/booking', bookingInfo)
                 .then(function (response) {
                     if (response.data.success) {
                         Swal.fire({
@@ -57,7 +57,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
                 });
         }
 
-        // fetch('http://localhost:5000/booking', {
+        // fetch('https://e-doctors-portal.herokuapp.com/booking', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'

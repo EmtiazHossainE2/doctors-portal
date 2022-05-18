@@ -5,7 +5,7 @@ const DoctorRow = ({ doctor, index, refetch }) => {
     // console.log(doctor);
     const { name, email, img, specialty } = doctor
     const handleDelete = () => {
-        const url = `http://localhost:5000/doctor/${email}`;
+        const url = `https://e-doctors-portal.herokuapp.com/doctor/${email}`;
         Swal.fire({
             text: `Are you sure to delete ${name} ?`,
             icon: "warning",
