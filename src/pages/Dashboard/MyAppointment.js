@@ -23,8 +23,9 @@ const MyAppointment = () => {
                         signOut(auth)
                         localStorage.removeItem('accessToken')
                         Swal.fire({
+                            text: 'Session expired sign in again . .' ,
                             icon: 'error',
-                            confirmButtonText: 'Unauthorized Access'
+                            confirmButtonText: 'Okay'
                         })
                         navigate('/login')
                     }

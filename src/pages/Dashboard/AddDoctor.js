@@ -9,7 +9,7 @@ const AddDoctor = () => {
 
     const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/appointment').then(res => res.json()))
 
-    // const imageStorageKey='4295ac4d47b569312bea67b440cdbdbb';
+    const imageStorageKey = '422e61968c3878a80022fbc5968b3094';
 
     /**
      * 3 ways to store images
@@ -21,58 +21,61 @@ const AddDoctor = () => {
     */
     const onSubmit = async data => {
         const image = data.image[0];
+        // console.log(image);
         const formData = new FormData();
         formData.append('image', image);
-        // const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
-        // fetch(url, {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        // .then(res=>res.json())
-        // .then(result =>{
-        //     if(result.success){
-        //         const img = result.data.url;
-        //         const doctor = {
-        //             name: data.name,
-        //             email: data.email,
-        //             specialty: data.specialty,
-        //             img: img
-        //         }
-        //         // send to your database 
-        //         fetch('http://localhost:5000/doctor', {
-        //             method: 'POST',
-        //             headers: {
-        //                 'content-type': 'application/json',
-        //                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        //             },
-        //             body: JSON.stringify(doctor)
-        //         })
-        //         .then(res =>res.json())
-        //         .then(inserted =>{
-        //             if(inserted.insertedId){
-        //                 Swal.fire({
-        //                     text: `Doctor Added Success`,
-        //                     icon: 'success',
-        //                     confirmButtonText: 'Thank you.'
-        //                 })
-        //                 reset();
-        //             }
-        //             else{
-        //                 Swal.fire({
-        //                     text: `Failed to add the doctor`,
-        //                     icon: 'error',
-        //                     confirmButtonText: 'Try Again'
-        //                 })
-        //             }
-        //         })
 
-        //     }
-            
-        // })
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {
+                // console.log('success', result);
+                if (result.success) {
+                    const img = result.data.url
+                    const doctorInfo = {
+                        name: data.name,
+                        email: data.email,
+                        specialty: data.specialty,
+                        img: img
+                    }
+                    // console.log(doctorInfo);
+                    fetch('http://localhost:5000/doctor', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(doctorInfo)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            if (inserted.insertedId) {
+                                Swal.fire({
+                                    text: `Doctor Added Success`,
+                                    icon: 'success',
+                                    confirmButtonText: 'Thank you.'
+                                })
+                                reset();
+                            }
+                            else {
+                                Swal.fire({
+                                    text: `Failed to add the doctor`,
+                                    icon: 'error',
+                                    confirmButtonText: 'Try Again'
+                                })
+                            }
+                        })
+                }
+                
+            })
     }
 
     if (isLoading) {
-        return <Loading/>
+        return <Loading />
     }
 
     return (
@@ -87,7 +90,7 @@ const AddDoctor = () => {
                     <input
                         type="text"
                         placeholder="Doctor Name"
-                        className="input input-bordered w-full max-w-xs text-lg"
+                        className="input input-bordered w-full max-w-xs text-lg "
                         {...register("name", {
                             required: {
                                 value: true,
@@ -129,7 +132,7 @@ const AddDoctor = () => {
                     <label className="label">
                         <span className="label-text">Specialty</span>
                     </label>
-                    <select {...register('specialty')} class="select input-bordered w-full max-w-xs">
+                    <select {...register('specialty')} className="select input-bordered w-full max-w-xs">
                         {
                             services.map(service => <option
                                 key={service._id}
