@@ -19,6 +19,7 @@ import MyHistory from './pages/Dashboard/MyHistory';
 import AllUsers from './pages/Dashboard/AllUsers';
 import RequireAdmin from './pages/Account/RequireAdmin';
 import AddDoctor from './pages/Dashboard/AddDoctor';
+import ManageDoctors from './pages/Dashboard/ManageDoctors';
 const App = () => {
     return (
         <div className='max-w-7xl mx-auto'>
@@ -43,6 +44,11 @@ const App = () => {
                     <Route path='addDoctor' element={
                         <RequireAdmin>
                             <AddDoctor />
+                        </RequireAdmin>}>
+                    </Route>
+                    <Route path='manageDoctor' element={
+                        <RequireAdmin>
+                            <ManageDoctors />
                         </RequireAdmin>}>
                     </Route>
                 </Route>

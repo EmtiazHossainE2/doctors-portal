@@ -53,6 +53,7 @@ const AddDoctor = () => {
                     })
                         .then(res => res.json())
                         .then(inserted => {
+                            // console.log(inserted);
                             if (inserted.insertedId) {
                                 Swal.fire({
                                     text: `Doctor Added Success`,

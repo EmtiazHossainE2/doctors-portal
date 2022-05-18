@@ -32,6 +32,7 @@ const Dashboard = () => {
                         {admin && <>
                             <li><NavLink to='/dashboard/user' className='text-lg'>All Users</NavLink></li>
                             <li><NavLink to='/dashboard/addDoctor' className='text-lg'>Add Doctor</NavLink></li>
+                            <li><NavLink to='/dashboard/manageDoctor' className='text-lg'>Manage Doctor</NavLink></li>
                         </>}
                         <li><button  onClick={logOut} className='text-lg'>Log Out</button></li>
                     </ul>
