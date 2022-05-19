@@ -27,9 +27,9 @@ const Payment = () => {
             <div className='text-center py-5'>
                 <p className='text-2xl'>Payment for <span className='text-lg font-bold text-success'>{appointment?.treatment}</span></p>
             </div>
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-8 px-5">
+            <div className="flex flex-col lg:flex-row justify-center items-center  px-5">
                 <div className="flex-1">
-                    <div class="card bg-base-100 shadow-xl">
+                    <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body space-y-3">
                             <h2 class="card-title">Hello! {appointment?.patient}</h2>
                             <p>Your appointment is <span className='font-bold text-primary'>{appointment?.date}</span> at <span className='font-bold text-primary'>{appointment?.slot}</span></p>
@@ -38,7 +38,7 @@ const Payment = () => {
                     </div>
                 </div>
                 <div className="flex-1">
-                    <div class="card  bg-base-100 shadow-xl">
+                    <div class="card w-96 bg-base-100 shadow-xl pt-5">
                         <div class="card-body">
                             <Elements stripe={stripePromise}>
                                 <CheckoutForm />
