@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
     const [user] = useAuthState(auth)
-    const { name, slots } = treatment
+    const { name, slots,price } = treatment
     const formattedDate = format(date, 'PP');
 
     const handleBooking = event => {
@@ -18,6 +18,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
             treatment: treatment.name,
             date: formattedDate,
             slot,
+            price,
             patient: event.target.patient.value,
             phone: event.target.phone.value,
             email: event.target.email.value

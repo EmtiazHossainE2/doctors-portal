@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleAppointment = ({ appointment,setTreatment }) => {
-    const { name, slots } = appointment
+    const { name, slots, price } = appointment
     return (
         <div className="card lg:max-w-lg  shadow-md">
             <div className="card-body items-center text-center space-y-2">
@@ -12,7 +12,8 @@ const SingleAppointment = ({ appointment,setTreatment }) => {
                     :
                     <span className='text-red-500 '>Try Another Day</span>
                 }</p>
-                <p className=' uppercase'>{slots.length} {slots.length > 1 ? "spaces" : 'space'} available</p>
+                <p className=' uppercase'>{slots.length} {slots.length > 1 ? "spaces" : 'space'} available</p> 
+                <p >Price : <span className='text-secondary font-bold'>$ {price}</span></p>
                 <div>
                     <label 
                     htmlFor="booking-modal" 
