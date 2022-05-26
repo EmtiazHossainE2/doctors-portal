@@ -29,19 +29,19 @@ const Payment = () => {
             </div>
             <div className="flex flex-col lg:flex-row justify-center items-center  px-5">
                 <div className="flex-1">
-                    <div class="card w-96 bg-base-100 shadow-xl">
-                        <div class="card-body space-y-3">
-                            <h2 class="card-title">Hello! {appointment?.patient}</h2>
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card-body space-y-3">
+                            <h2 className="card-title">Hello! {appointment?.patient}</h2>
                             <p>Your appointment is <span className='font-bold text-primary'>{appointment?.date}</span> at <span className='font-bold text-primary'>{appointment?.slot}</span></p>
                             <p>You have to pay <span className='font-bold text-lg text-secondary'>$ {appointment?.price}</span></p>
                         </div>
                     </div>
                 </div>
                 <div className="flex-1">
-                    <div class="card w-96 bg-base-100 shadow-xl pt-5">
-                        <div class="card-body">
+                    <div className="card w-96 bg-base-100 shadow-xl pt-5">
+                        <div className="card-body">
                             <Elements stripe={stripePromise}>
-                                <CheckoutForm />
+                                <CheckoutForm appointment={appointment} />
                             </Elements>
                         </div>
                     </div>

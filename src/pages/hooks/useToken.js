@@ -22,9 +22,9 @@ const useToken = user => {
                 .then(res => res.json())
                 .then(data => {
                     // console.log('inside useToken' ,  data)
-                    const accessToken = data.token
-                    localStorage.setItem('accessToken', accessToken)
-                    setToken(accessToken)
+                    const accessToken = data.token;
+                    localStorage.setItem('accessToken', accessToken);
+                    setToken(accessToken);
                 })
         }
 
